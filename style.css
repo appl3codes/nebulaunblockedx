@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: url('https://4kwallpapers.com/images/wallpapers/moon-aesthetic-5120x2880-12004.jpg') 
+  no-repeat center center/cover;
+  height: 100vh;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: purple;
+  padding: 15px 60px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #d8b4fe;
+}
+
+.nav-links a.active {
+  color: #a78bfa;
+  border-bottom: 2px solid #a78bfa;
+  padding-bottom: 2px;
+}
+
+
+.about-section {
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(180deg, #1e1b4b, #2e1065);
+  min-height: 80vh;
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #c4b5fd;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+
+.games-section {
+  text-align: center;
+  padding: 60px 20px;
+  color: white;
+  background: linear-gradient(180deg, #2e1065, #1e1b4b);
+  min-height: 80vh;
+}
+
+.games-section h1 {
+  font-size: 2.2rem;
+  color: #c4b5fd;
+  margin-bottom: 20px;
+}
+
+canvas {
+  background-color: #312e81;
+  border: 4px solid #a78bfa;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+
+.more-section {
+  background: linear-gradient(180deg, #1e1b4b, #2e1065);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  min-height: 80vh;
+}
+
+.more-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.more-section h1 {
+  font-size: 2.4rem;
+  color: #c4b5fd;
+  margin-bottom: 20px;
+}
+
+.more-section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.bio-button {
+  background-color: #a78bfa;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.bio-button:hover {
+  background-color: #c4b5fd;
+  transform: scale(1.05);
+}
+
+
+.home-section {
+  height: 100vh;
+  background: linear-gradient(180deg, #2e1065, #1e1b4b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.home-content {
+  max-width: 700px;
+  animation: popIn 1s ease-out;
+}
+
+.home-content h1 {
+  font-size: 3rem;
+  color: #c4b5fd;
+  margin-bottom: 15px;
+}
+
+.home-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.home-button {
+  background-color: #a78bfa;
+  color: white;
+  padding: 12px 35px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.home-button:hover {
+  background-color: #c4b5fd;
+  transform: scale(1.05);
+}
+
+/* ✨ Pop-in animation */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Universal pop-in animation for all pages */
+.page-animate {
+  animation: popIn 1s ease-out;
+}
+
+/* Reuse the same animation from your home page */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* ==== Game Grid ==== */
+.games-section {
+  text-align: center;
+  padding: 40px;
+}
+
+nav {
+  position: relative;
+  z-index: 1000;
+}
+iframe {
+  position: relative;
+  z-index: 1;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+  justify-items: center;
+}
+
+.game-card {
+  position: relative;
+  width: 220px;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+}
+
+.game-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(80, 0, 200, 0.7);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  font-size: 22px;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+.game-card:hover .overlay {
+  opacity: 1;
+}
