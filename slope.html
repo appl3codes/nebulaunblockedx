@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Slope | Nebula Games</title>
   <link rel="stylesheet" href="style.css">
   <style>
@@ -13,11 +13,9 @@
       font-family: "Poppins", sans-serif;
       text-align: center;
     }
-
     .game-container {
       padding: 60px 20px;
     }
-
     iframe {
       width: 90%;
       height: 80vh;
@@ -25,11 +23,9 @@
       border-radius: 15px;
       box-shadow: 0 0 20px #a78bfa;
     }
-
     .button-container {
-      margin-bottom: 20px;
+      margin: 20px 0;
     }
-
     .button {
       background-color: #a78bfa;
       color: white;
@@ -37,12 +33,11 @@
       border-radius: 25px;
       padding: 10px 25px;
       font-weight: bold;
-      cursor: pointer;
       text-decoration: none;
       margin: 10px;
+      cursor: pointer;
       transition: background 0.3s, transform 0.2s;
     }
-
     .button:hover {
       background-color: #c4b5fd;
       transform: scale(1.05);
@@ -52,24 +47,25 @@
 <body class="page-animate">
   <div class="game-container">
     <div class="button-container">
-      <a href="index.html" class="button">← Back to Home</a>
+      <a href="games.html" class="button">← Back to Games</a>
       <button class="button" onclick="openFullscreen()">Fullscreen</button>
     </div>
 
-    <iframe id="gameFrame" src="https://interstellar-v3-68n.pages.dev/play/slope" allowfullscreen></iframe>
+    <iframe id="gameFrame"
+      src="https://slopecom.com"
+      allowfullscreen>
+    </iframe>
   </div>
 
   <script>
     function openFullscreen() {
-      const gameFrame = document.getElementById("gameFrame");
-      if (gameFrame.requestFullscreen) {
-        gameFrame.requestFullscreen();
-      } else if (gameFrame.mozRequestFullScreen) {
-        gameFrame.mozRequestFullScreen(); // Firefox
-      } else if (gameFrame.webkitRequestFullscreen) {
-        gameFrame.webkitRequestFullscreen(); // Chrome, Safari, Opera
-      } else if (gameFrame.msRequestFullscreen) {
-        gameFrame.msRequestFullscreen(); // IE/Edge
+      const iframe = document.getElementById("gameFrame");
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
       }
     }
   </script>
