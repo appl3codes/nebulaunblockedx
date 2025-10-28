@@ -1,68 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slope - Nebula</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Run 3</title>
   <style>
     body {
-      background-color: #000;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
-    }
-
-    .top {
-      padding: 15px;
+      background: radial-gradient(circle at center, #1a0033, #000);
       display: flex;
-      justify-content: center;
-      gap: 15px;
-      background-color: #7b61ff;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      overflow: hidden;
+      font-family: "Poppins", sans-serif;
     }
 
-    .btn {
-      background-color: white;
-      color: #7b61ff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      background-color: #f0f0f0;
+    h1 {
+      color: #a78bfa;
+      text-shadow: 0 0 10px #a78bfa;
+      margin-top: 20px;
+      margin-bottom: 10px;
     }
 
     iframe {
       width: 90%;
-      height: 80vh;
+      height: 75vh;
+      border: 3px solid #a78bfa;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #a78bfa;
+      transition: all 0.3s ease;
+    }
+
+    iframe:fullscreen {
+      width: 100%;
+      height: 100%;
       border: none;
-      border-radius: 12px;
-      margin-top: 20px;
-      background: #111;
+      border-radius: 0;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background: #a78bfa;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #c4b5fd;
+    }
+
+    a {
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <div class="top">
-    <a href="games.html" class="btn">⬅ Back to Games</a>
-    <button class="btn" id="fullscreenBtn">⛶ Fullscreen</button>
+  <h1>🏃 Run 3</h1>
+
+  <div class="button-container">
+    <a href="games.html">
+      <button>⬅ Go Back to Games</button>
+    </a>
+    <button id="fullscreenBtn">Go Fullscreen</button>
   </div>
 
-  <!-- The playable game -->
-  <iframe 
-    src="https://watchdocumentaries.com/slope-game" 
-    allowfullscreen>
-  </iframe>
+  <!-- Embed Run 3 -->
+  <iframe
+    id="gameFrame"
+    src="https://watchdocumentaries.com/slope-game"
+    allowfullscreen
+  ></iframe>
 
   <script>
-    document.getElementById("fullscreenBtn").addEventListener("click", () => {
-      const frame = document.querySelector("iframe");
-      if (frame.requestFullscreen) frame.requestFullscreen();
-      else if (frame.webkitRequestFullscreen) frame.webkitRequestFullscreen();
+    const iframe = document.getElementById("gameFrame");
+    const fullscreenBtn = document.getElementById("fullscreenBtn");
+
+    fullscreenBtn.addEventListener("click", () => {
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+      }
     });
   </script>
 </body>
