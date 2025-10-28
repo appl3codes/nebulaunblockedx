@@ -1,100 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Run 3</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Slope - Nebula</title>
   <style>
-    body {
-      margin: 0;
-      background: radial-gradient(circle at center, #1a0033, #000);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      height: 100vh;
-      overflow: hidden;
-      font-family: "Poppins", sans-serif;
+    :root{
+      --purple:#a78bfa;
+      --bg:#0b0b15;
+      --card:#120826;
     }
-
-    h1 {
-      color: #a78bfa;
-      text-shadow: 0 0 10px #a78bfa;
-      margin-top: 20px;
-      margin-bottom: 10px;
+    html,body{
+      height:100%;
+      margin:0;
+      background:radial-gradient(circle at center,#1a0033,#000);
+      color:#fff;
+      font-family:Poppins,system-ui,Segoe UI,Arial;
     }
-
+    .wrap{
+      max-width:1100px;
+      margin:24px auto;
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+    }
+    .title{
+      color:var(--purple);
+      font-size:1.3rem;
+      text-shadow:0 0 8px var(--purple);
+    }
+    .controls{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .btn{
+      background:var(--purple);
+      border:none;
+      color:#fff;
+      padding:10px 16px;
+      border-radius:14px;
+      cursor:pointer;
+      font-weight:600;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      transition:transform .12s,background .12s;
+    }
+    .btn:hover{
+      transform:translateY(-2px);
+      background:#c4b5fd;
+      color:#111;
+    }
+    .embed-frame{
+      width:100%;
+      height:78vh;
+      border-radius:12px;
+      border:3px solid rgba(167,139,250,.15);
+      box-shadow:0 6px 40px rgba(103,38,217,.15);
+      overflow:hidden;
+      background:var(--card);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
     iframe {
-      width: 90%;
-      height: 75vh;
-      border: 3px solid #a78bfa;
-      border-radius: 20px;
-      box-shadow: 0 0 20px #a78bfa;
-      transition: all 0.3s ease;
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
     }
-
-    iframe:fullscreen {
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 0;
-    }
-
-    .button-container {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-
-    button {
-      background: #a78bfa;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #c4b5fd;
-    }
-
-    a {
-      text-decoration: none;
+    @media (max-width:720px){
+      .embed-frame{height:64vh;}
     }
   </style>
 </head>
 <body>
-  <h1>🏃 Run 3</h1>
+  <div class="wrap">
+    <div class="controls">
+      <a class="btn" href="games.html">⬅ Back to Games</a>
+      <button class="btn" id="fsBtn" type="button">⛶ Fullscreen</button>
+    </div>
 
-  <div class="button-container">
-    <a href="games.html">
-      <button>⬅ Go Back to Games</button>
-    </a>
-    <button id="fullscreenBtn">Go Fullscreen</button>
+    <div class="embed-frame" id="embedFrame">
+      <!-- PUT YOUR EMBEDED CODE HERE -->
+      <iframe src="https://interstellar-v3-68n.pages.dev/play/slope" allowfullscreen></iframe>
+    </div>
   </div>
 
-  <!-- Embed Run 3 -->
-  <iframe
-    id="gameFrame"
-    src="https://watchdocumentaries.com/slope-game"
-    allowfullscreen
-  ></iframe>
-
   <script>
-    const iframe = document.getElementById("gameFrame");
-    const fullscreenBtn = document.getElementById("fullscreenBtn");
-
-    fullscreenBtn.addEventListener("click", () => {
-      if (iframe.requestFullscreen) {
-        iframe.requestFullscreen();
-      } else if (iframe.webkitRequestFullscreen) {
-        iframe.webkitRequestFullscreen();
-      } else if (iframe.msRequestFullscreen) {
-        iframe.msRequestFullscreen();
+    // Fullscreen function for embedded games
+    const fsBtn = document.getElementById("fsBtn");
+    fsBtn.addEventListener("click", () => {
+      const iframe = document.querySelector("#embedFrame iframe");
+      if (iframe) {
+        if (iframe.requestFullscreen) iframe.requestFullscreen();
+        else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
+        else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
       }
     });
   </script>
