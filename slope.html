@@ -26,15 +26,12 @@
       align-items:center;
       gap:12px;
     }
-    .title{
-      color:var(--purple);
-      font-size:1.3rem;
-      text-shadow:0 0 8px var(--purple);
-    }
     .controls{
       display:flex;
       gap:10px;
       align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
     }
     .btn{
       background:var(--purple);
@@ -86,13 +83,13 @@
     </div>
 
     <div class="embed-frame" id="embedFrame">
-      <!-- PUT YOUR EMBEDED CODE HERE -->
+      <!-- PUT YOUR GAME EMBED HERE -->
       <iframe src="https://interstellar-v3-68n.pages.dev/play/slope" allowfullscreen></iframe>
     </div>
   </div>
 
   <script>
-    // Fullscreen function for embedded games
+    // Fullscreen button logic
     const fsBtn = document.getElementById("fsBtn");
     fsBtn.addEventListener("click", () => {
       const iframe = document.querySelector("#embedFrame iframe");
